@@ -1,6 +1,6 @@
 # LifeInvader Blogging Platform
 
-<!-- Overview
+Overview
 LifeInvader is an innovative blogging platform that empowers users to share their life experiences, insights, and stories with the world. With a focus on community and connectivity, LifeInvader offers an intuitive, engaging space for writers, readers, and thought leaders to interact and inspire each other. From personal journeys to professional advice, LifeInvader embraces a wide spectrum of topics, inviting everyone to contribute their voice.
 
 ## Features
@@ -17,4 +17,4 @@ LifeInvader is an innovative blogging platform that empowers users to share thei
 - **Database:** PostgreSQL for reliable data storage and management.
 
 ## Getting Started
-To get started with the LifeInvader app development: -->
+To get started with the LifeInvader app development:

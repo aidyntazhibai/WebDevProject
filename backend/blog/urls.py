@@ -1,9 +1,10 @@
+# blog/urls.py
+
 from django.urls import path
-from .import views
+from .views import PostList, PostDetail, create_comment
 
 urlpatterns = [
-    path('blog/', views.index, name='blog-index'),
-    path('post_detail/<int:pk>/', views.post_detail, name='blog-post-detail'),
-    path('post_edit/<int:pk>/', views.post_edit, name='blog-post-edit'),
-    path('post_delete/<int:pk>/', views.post_delete, name='blog-post-delete'),
+    path('api/posts/', PostList.as_view(), name='post-list'),
+    path('api/posts/<int:pk>/', PostDetail.as_view(), name='post-detail'),
+    path('api/posts/<int:pk>/comment/', create_comment, name='create-comment'),
 ]

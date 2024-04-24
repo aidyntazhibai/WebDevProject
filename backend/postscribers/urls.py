@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.views.generic import TemplateView
 
 
 
@@ -24,8 +26,17 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
     path('', include('users.urls')),
+
+    # path('', TemplateView.as_view(template_name='index.html'), name='home'),
+    # path('<path:path>', TemplateView.as_view(template_name='index.html')),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
+    urlpatterns += staticfiles_urlpatterns()  # Обслуживание статических файлов
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # Обслуживание медиафайлов
+
+# Add a catch-all route for serving the Angular app
+urlpatterns += [
+    path('', TemplateView.as_view(template_name='index.html'), name='home'),
+    path('<path:path>', TemplateView.as_view(template_name='index.html')),
+]
